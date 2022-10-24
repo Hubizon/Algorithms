@@ -1,0 +1,50 @@
+// lowest common ancestor in a tree for every query of the form (u, v) online:
+struct LCA {
+    int n, L;
+    vector<vector<int>> G;
+
+    vector<int> depth;
+    vector<vector<int>> jumpp;
+
+    LCA(int n) : n(n) {
+        L = ceil(log2(n));
+        G.resize(n), depth.resize(n);
+        jumpp.resize(n, vector<int>(L + 1, -1));
+    } 
+
+    void DFS(int u, int p) {
+        jumpp[u][0] = p;
+        depth[u] = depth[p] + 1;
+        for (int i = 1; i <= L; i++)
+            jumpp[u][i] = jumpp[jumpp[u][i - 1]][i - 1];
+        for (auto v : G[u])
+            if (v != p)
+                DFS(v, u);
+    }
+
+    int query(int u, int v) {
+        if (u == v) return u;
+        if (depth[u] < depth[v]) swap(u, v);
+        for (int i = L; i >= 0; --i)
+            if (depth[jumpp[u][i]] >= depth[v])
+                u = jumpp[u][i];
+        if (u == v) return u;
+        for (int i = L; i >= 0; --i) {
+            if (jumpp[u][i] != jumpp[v][i]) {
+                u = jumpp[u][i];
+                v = jumpp[v][i];
+            } 
+        }
+        return jumpp[u][0];
+    }
+
+    // przyłącz drzewo z wierzchołkiem u do tego z p
+    void connect(int u, int p) {
+        G[u].push_back(p);
+        G[p].push_back(u);
+        if (jumpp[p].back() == -1) 
+            fill(jumpp[p].begin(), jumpp[p].end(), p);
+        fill(jumpp[u].begin(), jumpp[u].end(), jumpp[p].back());
+        DFS(u, p);
+    }
+};
