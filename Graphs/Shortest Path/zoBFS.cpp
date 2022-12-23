@@ -4,7 +4,7 @@
 vector<vector<pair<int, bool>>> G(n);
 vector<int> dist(n, INT32_MAX);
 
-auto zoBFS = [&](const int src) {
+auto BFS = [&](const int src) {
     dist[src] = 0;
     deque<int> Q; Q.push_back(src);
     while (Q.size()) {

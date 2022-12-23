@@ -4,7 +4,7 @@
 vector<vector<int>> G(n);
 vector<int> dist(n, INT32_MAX);
 
-auto distBFS = [&](const int src) {
+auto BFS = [&](const int src) {
     dist[src] = 0;
     queue<int> Q; Q.push(src);
     while (Q.size()) {

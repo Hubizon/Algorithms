@@ -1,12 +1,12 @@
 // DFS (graph traversal)
-// time complexity: O(n), space: O(n)
+// time complexity: O(n) [O(V + E)], space: O(n)
 
 vector<vector<int>> G(n);
-vector<bool> visited(n);
+vector<bool> vis(n);
 
 function<void(int)> DFS = [&](int u) {
-    visited[u] = true;
+    vis[u] = true;
     for (auto v : G[u])
-        if (!visited[v])
+        if (!vis[v])
             DFS(v);
 };

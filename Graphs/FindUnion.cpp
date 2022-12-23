@@ -1,0 +1,42 @@
+// Find Union
+// time complexity: O(n), unify in O(log*(n)), space: O(n)
+
+struct FindUnion {
+	int n = 0;
+	int componentsNum;
+	vector<int> sizes, P;
+
+	FindUnion(int n) : n(n) {
+		componentsNum = n;
+		sizes = vector<int>(n, 1);
+		P = vector<int>(n);
+		for (int i = 0; i < n; i++) P[i] = i;
+	}
+
+	int find(int u) {
+		if (P[u] != u) P[u] = find(P[u]);
+		return P[u];
+	}
+
+	void unify(int u, int v) {
+		int root1 = find(u), root2 = find(v);
+		if (root1 == root2) return;
+		if (sizes[root1] >= sizes[root2]) {
+			sizes[root1] += sizes[root2];
+			P[root2] = root1;
+		}
+		else {
+			sizes[root2] += sizes[root1];
+			P[root1] = root2;
+		}
+		componentsNum--;
+	}
+
+	bool connected(int u, int v) {
+		return find(u) == find(v);
+	}
+
+	int componentSize(int u) {
+		return sizes[find(u)];
+	}
+};
