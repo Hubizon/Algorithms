@@ -1,4 +1,4 @@
-// Min/Max Queue
+// Min/Max Queue (queue that returns current min/max value)
 // time complexity: query O(1), space: O(n)
 
 struct MinQ {
