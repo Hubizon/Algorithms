@@ -11,12 +11,10 @@ struct Value {
 
 template <typename Value>
 struct RMQ {
-    int n, K;
+    int K;
     vector<vector<Value>> M;
 
-    RMQ() { };
-
-    RMQ(const vector<Value>& m) : n(m.size()), K(__lg(n) + 1), M(K) {
+    RMQ(const vector<Value>& m) : K(__lg(m.size()) + 1), M(K) {
         M[0] = m;
 
         for (int k = 1; k < K; k++)

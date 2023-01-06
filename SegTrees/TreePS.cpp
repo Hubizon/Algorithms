@@ -2,19 +2,15 @@
 // time complexity: O(n * log(n)), query O(log (n)), space: O(n * log(n))
 
 struct Value {
-    int v = 0;
+    int v = INT32_MIN;
 };
 
 Value operator+(const Value& lhs, const Value& rhs) {
-    Value res;
-    res = { max(lhs.v, rhs.v) };
-    return res;
+    return { max(lhs.v, rhs.v) };
 }
 
 Value operator*(const Value& lhs, const Value& rhs) {
-    Value res;
-    res = rhs;
-    return res;
+    return rhs;
 }
 
 template <typename Value>
@@ -24,12 +20,12 @@ struct Tree {
 
     Tree(const int n) {
         while (L <= n) L *= 2;
-        T.resize(2 * L);
+        T = vector<int>(2 * L);
     }
 
     Tree(const vector<Value>& V) {
         while (L <= V.size()) L *= 2;
-        T.resize(2 * L);
+        T = vector<int>(2 * L);
 		for (int i = 0; i < V.size(); i++)
 			T[i + L] = V[i];
         for (int i = L - 1; i > 0; i--)

@@ -2,11 +2,10 @@
 // time complexity: O(n), unify in O(log*(n)), space: O(n)
 
 struct FindUnion {
-	int n = 0;
 	int componentsNum;
 	vector<int> sizes, P;
 
-	FindUnion(int n) : n(n) {
+	FindUnion(const int n) {
 		componentsNum = n;
 		sizes = vector<int>(n, 1);
 		P = vector<int>(n);

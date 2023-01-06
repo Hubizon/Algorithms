@@ -7,7 +7,7 @@ struct MinQ {
 
     void push(int x) {
         int cnt = 0;
-        while (!K.empty() && K.back().first >= x) { // <=   -  Max Queue
+        while (K.size() && K.back().first >= x) { // <=   -  Max Queue
             cnt += K.back().second + 1;
             K.pop_back();
         }

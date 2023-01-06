@@ -1,4 +1,4 @@
-// BellmanFord (shortest path from source to every other node)
+// BellmanFord (shortest path from source to every other node) - returns false if there is a negative cycle
 // time complexity: O(n^3) [O(V * E)], space: O(n)
 
 constexpr int INF = 1e9;

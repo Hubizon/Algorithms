@@ -11,15 +11,14 @@ struct Value {
 
 template<typename Value>
 struct LCA {
-    int n;
     vector<vector<int>> G;
     vector<Value> E; // depth, vertex
     vector<int> F;
-    RMQ rmq;
+    RMQ<Value> rmq;
  
-    LCA(vector<vector<int>>& G) : n(G.size()), G(G), F(n, -1) {
+    LCA(const vector<vector<int>>& G) : G(G), F(G.size(), -1) {
         DFS(0, 0, 0);
-        rmq = RMQ(E);
+        rmq = RMQ<Value>(E);
     }
  
     void DFS(int u, int p, int d) {
@@ -32,8 +31,8 @@ struct LCA {
         }
     }		
  
-    int query(int p, int q) {
-        auto [fp, fq] = minmax(F[p], F[q]);
-        return rmq.query(fp, fq + 1).v;
+    int query(int u, int v) {
+        auto [fu, fv] = minmax(F[u], F[v]);
+        return rmq.query(fu, fv + 1).v;
     }
 };
