@@ -7,6 +7,13 @@
 		"xutility": "cpp",
 		"queue": "cpp",
 		"stack": "cpp",
-		"utility": "cpp"
+		"utility": "cpp",
+		"iosfwd": "cpp",
+		"xlocmes": "cpp",
+		"chrono": "cpp",
+		"functional": "cpp",
+		"optional": "cpp",
+		"system_error": "cpp",
+		"xtr1common": "cpp"
 	}
 }

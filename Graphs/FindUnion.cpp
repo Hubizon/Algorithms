@@ -5,10 +5,8 @@ struct FindUnion {
 	int componentsNum;
 	vector<int> sizes, P;
 
-	FindUnion(const int n) {
+	FindUnion(const int n) : sizes(n, 1), P(n) {
 		componentsNum = n;
-		sizes = vector<int>(n, 1);
-		P = vector<int>(n);
 		for (int i = 0; i < n; i++) P[i] = i;
 	}
 

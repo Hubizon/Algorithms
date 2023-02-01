@@ -20,7 +20,7 @@ struct Tree {
 
     Tree(const int n) {
         while (L <= n) L *= 2;
-        T = vector<int>(2 * L);
+        T = vector<Value>(2 * L);
     }
 
     Tree(const vector<Value>& V) {
