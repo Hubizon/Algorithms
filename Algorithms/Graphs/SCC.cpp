@@ -6,29 +6,28 @@ vector<bool> vis(n);
 stack<int> S;
 
 function<void(int)> TSort = [&](int u) {
+	if (vis[u]) return;
 	vis[u] = true;
-    for (auto v : G[u])
-		if (!vis[u])
-        	TSort(v);
-    S.push(u);
+	for (auto v : G[u])
+		TSort(v);
+	S.push(u);
 };
 
 for (int u = 0; u < n; u++)
-    if (!vis[u])
-		TSort(u);
+	TSort(u);
 
-vector<int> SCC(n, -1); 
+vector<int> SCC(n, -1);
 int c = 0;
 
 function<void(int)> rDFS = [&](int u) {
-    SCC[u] = c;
+	SCC[u] = c;
 	for (auto& v : RG[u])
-		if (SCC[u] == -1)
+		if (SCC[v] == -1)
 			rDFS(v);
 };
 
 while (S.size()) {
-	auto v = S.top(); S.pop();
-	if (SCC[v] == -1)
-    	rDFS(v), c++;
+	auto u = S.top(); S.pop();
+	if (SCC[u] == -1)
+		rDFS(u), c++;
 }

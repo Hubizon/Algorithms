@@ -3,21 +3,21 @@
 
 vector<int> Pal(const string& W) {
 	string S = "#";
-	for (auto& w : W) 
+	for (auto& w : W)
 		S += w, S += '#';
-		
+
 	int n = S.size();
-	vector<int> R(n); 
+	vector<int> R(n);
 	R[0] = 1;
-	
+
 	for (int i = 1, j = 1, k; i < n; i += k, j -= k) {
-		while (i - j >= 0 && i + j < n && S[i - j] == S[i + j]) 
+		while (i - j >= 0 && i + j < n && S[i - j] == S[i + j])
 			j++;
 		R[i] = j;
-		for (k = 1; k + R[i - k] < j; k++) 
+		for (k = 1; k + R[i - k] < j; k++)
 			R[i + k] = R[i - k];
 	}
-	
+
 	return R;
 }
 

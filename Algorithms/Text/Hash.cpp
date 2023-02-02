@@ -9,8 +9,8 @@ const long long MOD = 1e9 + 100011;
 
 vector<long long> P1(n), P2(n);
 for (long long i = 0, x1 = 1, x2 = 1; i < n; i++) {
-	P1[i] = ((x1 *= PRIME1) %= MOD);
-	P2[i] = ((x2 *= PRIME2) %= MOD);
+    P1[i] = ((x1 *= PRIME1) %= MOD);
+    P2[i] = ((x2 *= PRIME2) %= MOD);
 }
 
 vector<long long> HPre1(n + 1), HPre2(n + 1);

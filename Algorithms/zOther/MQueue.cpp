@@ -3,7 +3,7 @@
 
 struct MinQ {
     deque<pair<int, int>> K;
-    int size = 0; 
+    int size = 0;
 
     void push(int x) {
         int cnt = 0;
@@ -23,7 +23,7 @@ struct MinQ {
         --size;
     }
 
-    int extreme() { 
+    int extreme() {
         return K.front().first;
     }
 };

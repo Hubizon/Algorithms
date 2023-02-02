@@ -30,15 +30,15 @@ struct Tree {
 			return value * modifier;
 		}
 	};
-	
+
 	int L = 1;
 	vector<Node> T;
-	
+
 	Tree(int n) {
 		while (L <= n) L *= 2;
 		T = vector<Node>(2 * L);
 	}
-	
+
 	void update(int p, int q, const Modifier& modifier) { // [p, q)
 		p += L, q += L;
 		if (p >= q) return;
@@ -53,7 +53,7 @@ struct Tree {
 		while (p /= 2)
 			T[p].value = T[2 * p] + T[2 * p + 1];
 	}
-	
+
 	Value query(int p, int q) { // [p, q)
 		p += L, q += L;
 		if (p >= q) return { };

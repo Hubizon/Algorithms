@@ -14,6 +14,15 @@
 		"functional": "cpp",
 		"optional": "cpp",
 		"system_error": "cpp",
-		"xtr1common": "cpp"
+		"xtr1common": "cpp",
+		"deque": "cpp",
+		"list": "cpp",
+		"array": "cpp",
+		"random": "cpp",
+		"ranges": "cpp",
+		"span": "cpp",
+		"xhash": "cpp",
+		"xtree": "cpp",
+		"format": "cpp"
 	}
 }

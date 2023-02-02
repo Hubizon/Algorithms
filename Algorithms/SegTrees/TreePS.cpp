@@ -26,8 +26,8 @@ struct Tree {
     Tree(const vector<Value>& V) {
         while (L <= V.size()) L *= 2;
         T = vector<int>(2 * L);
-		for (int i = 0; i < V.size(); i++)
-			T[i + L] = V[i];
+        for (int i = 0; i < V.size(); i++)
+            T[i + L] = V[i];
         for (int i = L - 1; i > 0; i--)
             T[i] = T[2 * i] + T[2 * i + 1];
     }

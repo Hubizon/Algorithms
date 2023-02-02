@@ -4,9 +4,9 @@
 using namespace std;
 
 vector<int> KMPSearch(const string& text, const string& pattern) {
-	vector<int> lps = getLPS(pattern), Res;
+    vector<int> lps = getLPS(pattern), Res;
     int n = text.size(), m = pattern.size(), i = 0, j = 0;
-	
+
     while (i < n) {
         if (pattern[j] == text[i])
             i++, j++;

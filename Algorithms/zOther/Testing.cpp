@@ -32,7 +32,7 @@ void test() {
 
 		if (!compareFiles()) {
 			cerr << "wtf";
-			exit (0);
+			exit(0);
 		}
 	}
 }
