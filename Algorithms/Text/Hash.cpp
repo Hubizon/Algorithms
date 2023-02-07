@@ -5,7 +5,7 @@ string S;
 int n = S.size();
 
 const long long PRIME1 = 101, PRIME2 = 151;
-const long long MOD = 1e9 + 100011;
+const long long MOD = 1e9 + 1011;
 
 vector<long long> P1(n), P2(n);
 for (long long i = 0, x1 = 1, x2 = 1; i < n; i++) {
@@ -15,8 +15,8 @@ for (long long i = 0, x1 = 1, x2 = 1; i < n; i++) {
 
 vector<long long> HPre1(n + 1), HPre2(n + 1);
 for (int i = 0; i < n; i++) {
-    (HPre1[i + 1] = HPre1[i] + (S[i] * P1[i])) %= MOD;
-    (HPre2[i + 1] = HPre2[i] + (S[i] * P2[i])) %= MOD;
+    HPre1[i + 1] = (HPre1[i] + (S[i] * P1[i])) % MOD;
+    HPre2[i + 1] = (HPre2[i] + (S[i] * P2[i])) % MOD;
 }
 
 auto getComparableHash = [&](int i, int l) {

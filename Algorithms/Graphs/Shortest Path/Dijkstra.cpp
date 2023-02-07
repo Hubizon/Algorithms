@@ -1,8 +1,6 @@
 // Dijkstra (shortest path from source to every other node, all weights being >=0)
 // time complexity: O(n log(n)) [O((V + E) log(V))], space: O(n)
 
-constexpr int INF = 1e9;
-
 vector<vector<pair<int, int>>> G(n);
 vector<int> dist(n, INF);
 

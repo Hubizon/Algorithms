@@ -23,6 +23,8 @@
 		"span": "cpp",
 		"xhash": "cpp",
 		"xtree": "cpp",
-		"format": "cpp"
+		"format": "cpp",
+		"fstream": "cpp",
+		"algorithm": "cpp"
 	}
 }

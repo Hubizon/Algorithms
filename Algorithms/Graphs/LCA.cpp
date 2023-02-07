@@ -16,18 +16,18 @@ struct LCA {
     vector<int> F;
     RMQ<Value> rmq;
 
-    LCA(const vector<vector<int>>& G) : G(G), F(G.size(), -1) {
-        DFS(0, 0, 0);
+    LCA(const vector<vector<int>>& G, const int root) : G(G), F(G.size(), -1) {
+        DFS(0, root);
         rmq = RMQ<Value>(E);
     }
 
-    void DFS(int u, int p, int d) {
+    void DFS(int u, int d) {
         if (F[u] == -1) F[u] = E.size();
         E.push_back({ d, u });
         for (auto& v : G[u]) {
-            if (v == p) continue;
+            if (F[v] != -1) continue;
+            DFS(v, d + 1);
             E.push_back({ d, u });
-            DFS(v, u, d + 1);
         }
     }
 

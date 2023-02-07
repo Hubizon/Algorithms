@@ -26,3 +26,4 @@ vector<int> R; // positions in the text where the pattern begins
 for (int i = 0; i < Z.size(); i++)
 	if (Z[i] == P.size())
 		R.push_back(i - P.size() - 1);
+		
