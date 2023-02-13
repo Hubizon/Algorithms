@@ -4,7 +4,7 @@
 string S;
 int n = S.size();
 
-const long long PRIME1 = 101, PRIME2 = 151;
+const long long PRIME1 = 131, PRIME2 = 151;
 const long long MOD = 1e9 + 1011;
 
 vector<long long> P1(n), P2(n);

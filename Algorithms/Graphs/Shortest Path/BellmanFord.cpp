@@ -10,7 +10,7 @@ auto BellmanFord = [&](const int src) {
     for (int i = 0; i < n && isRelaxed; i++) {
         isRelaxed = false;
         for (auto [s, d, w] : E) {
-            if (dist[s] != INF && dist[d] > dist[s] + w) {
+            if (dist[d] > dist[s] + w) {
                 dist[d] = dist[s] + w;
                 isRelaxed = true;
             }

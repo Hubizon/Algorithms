@@ -25,6 +25,7 @@
 		"xtree": "cpp",
 		"format": "cpp",
 		"fstream": "cpp",
-		"algorithm": "cpp"
+		"algorithm": "cpp",
+		"limits": "cpp"
 	}
 }
