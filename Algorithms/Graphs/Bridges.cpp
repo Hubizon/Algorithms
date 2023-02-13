@@ -8,7 +8,7 @@ vector<pair<int, int>> Bridges;
 vector<int> tin(n, -1), low(n);
 function<void(int, int)> bDFS = [&](int u, int p = -1) {
 	tin[u] = low[u] = cnt++;
-	for (auto& v : G[u]) {
+	for (auto v : G[u]) {
 		if (v == p) continue;
 		if (tin[v] == -1)
 			bDFS(v, u);

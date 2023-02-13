@@ -34,14 +34,23 @@ struct Tree {
 	int L = 1;
 	vector<Node> T;
 
-	Tree(int n) {
+	Tree(const int n) {
 		while (L <= n) L *= 2;
 		T = vector<Node>(2 * L);
 	}
+	
+	Tree(const vector<Value>& V) {
+		while (L <= V.size()) L *= 2;
+		T = vector<Node>(2 * L);
+		for (int i = 0; i < V.size(); i++)
+			T[i + L].value = V[i];
+		for (int i = L - 1; i > 0; i--)
+			T[i] = T[2 * i] + T[2 * i + 1];
+	}
 
 	void update(int p, int q, const Modifier& modifier) { // [p, q)
-		p += L, q += L;
 		if (p >= q) return;
+		p += L, q += L;
 		T[p].modifier = T[p].modifier * modifier;
 		while (p / 2 != q / 2) {
 			if (p % 2 == 0) T[p + 1].modifier = T[p + 1].modifier * modifier;
@@ -55,8 +64,8 @@ struct Tree {
 	}
 
 	Value query(int p, int q) { // [p, q)
-		p += L, q += L;
 		if (p >= q) return { };
+		p += L, q += L;
 		Value resL = T[p], resR = { };
 		while (p / 2 != q / 2) {
 			if (p % 2 == 0) resL = resL + T[p + 1];

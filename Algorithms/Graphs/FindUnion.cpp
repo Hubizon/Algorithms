@@ -18,14 +18,10 @@ struct FindUnion {
 	void unify(int u, int v) {
 		int root1 = find(u), root2 = find(v);
 		if (root1 == root2) return;
-		if (sizes[root1] >= sizes[root2]) {
-			sizes[root1] += sizes[root2];
-			P[root2] = root1;
-		}
-		else {
-			sizes[root2] += sizes[root1];
-			P[root1] = root2;
-		}
+		if (sizes[root1] < sizes[root2])
+			swap(root1, root2);
+		sizes[root1] += sizes[root2];
+		P[root2] = root1;
 		componentsNum--;
 	}
 
