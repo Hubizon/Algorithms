@@ -26,6 +26,7 @@
 		"format": "cpp",
 		"fstream": "cpp",
 		"algorithm": "cpp",
-		"limits": "cpp"
+		"limits": "cpp",
+		"map": "cpp"
 	}
 }
