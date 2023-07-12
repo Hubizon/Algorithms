@@ -1,4 +1,4 @@
 # Algorithms
 my cpp algorithms
 
-just a collection of my competetive programming algorithms in the beautiful language cpp
+A collection of a few competetive programming algorithms in c++

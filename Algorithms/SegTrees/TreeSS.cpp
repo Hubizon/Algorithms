@@ -45,7 +45,7 @@ struct Tree {
 		for (int i = 0; i < V.size(); i++)
 			T[i + L].value = V[i];
 		for (int i = L - 1; i > 0; i--)
-			T[i] = T[2 * i] + T[2 * i + 1];
+			T[i].value = T[2 * i] + T[2 * i + 1];
 	}
 
 	void update(int p, int q, const Modifier& modifier) { // [p, q)
